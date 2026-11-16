@@ -26,6 +26,10 @@ Scope: one user, localhost. Not designed for multi-user or network-exposed hosti
 
 ## Quick start
 
+The shortest way: `./scripts/start.sh` builds, creates a config with a random API key, starts the server in the background and prints the URL, key and model names (`./scripts/stop.sh` stops it). [SKILL.md](SKILL.md) describes the same for coding agents (also available to Claude Code as the project skill `completions-bridge`).
+
+Or by hand:
+
 ```sh
 cargo build --release
 mkdir -p ~/.completions-bridge
@@ -113,6 +117,8 @@ Logs go to stderr (`BRIDGE_LOG=debug` for detail); conversation content is not l
 | `docs/` | architecture, conformance spec, production-readiness report, early design notes |
 | `e2e/` | end-to-end harnesses (real opencode, conformance with SDKs, readiness, long and parallel runs) |
 | `probes/` | research scripts that established how claude behaves |
+| `scripts/` | `start.sh` / `stop.sh` for running the server in the background |
+| `SKILL.md` | agent skill: start the server and report URL and models |
 
 ## Tests
 
