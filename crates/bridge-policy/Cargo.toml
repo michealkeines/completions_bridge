@@ -1,0 +1,12 @@
+[package]
+name = "bridge-policy"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Output policy: tool_choice, parallel_tool_calls, stop, max_tokens, response_format enforcement."
+
+[dependencies]
+bridge-types.workspace = true
+jsonschema.workspace = true
+serde.workspace = true
+serde_json.workspace = true

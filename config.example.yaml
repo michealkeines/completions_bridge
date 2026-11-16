@@ -1,0 +1,93 @@
+server:
+  listen: 127.0.0.1:4141
+  token: null
+  workdir: ~/.completions-bridge
+  max_body_mb: 20
+  first_token_timeout_s: 120
+  keepalive_ping_s: 10
+  header_wait_ms: 8000
+  shutdown_grace_s: 30
+  oversize_drain_mb: 64
+  oversize_drain_s: 10
+models:
+  bridge/auto:
+    backend: null
+    model: null
+    context_limit: null
+  bridge/claude-haiku:
+    backend: claude
+    model: claude-haiku-5-5
+    context_limit: null
+  bridge/claude-opus:
+    backend: claude
+    model: claude-opus-5-5
+    context_limit: null
+  bridge/claude-sonnet:
+    backend: claude
+    model: claude-sonnet-5-5
+    context_limit: null
+  bridge/claude-sonnet-5-5:
+    backend: claude
+    model: claude-sonnet-5-5
+    context_limit: null
+backends:
+  claude:
+    kind: claude-cli
+    enabled: true
+    priority: 1
+    max_concurrency: 12
+    queue_wait_ms: 30000
+    default_model: claude-sonnet-5-5
+    side_request_model: claude-haiku-5-5
+    selftest_model: null
+    binary: null
+    extra_args: []
+    effort_map:
+      high: high
+      low: low
+      medium: medium
+      minimal: low
+    context_limit: 200000
+    tuning:
+      stop_grace_ms: 10000
+      exit_grace_ms: 3000
+      abort_grace_ms: 2000
+      kill_wait_ms: 5000
+      freeze_wait_ms: 15000
+      stderr_cap_bytes: 16384
+      autocompact_tokens: 1000000
+      keep_glue: true
+    prompts:
+      default_system: null
+      runtime_note: null
+      continue_trigger: null
+      glue_filler: null
+      system_message_prefix: null
+      transcript_header: null
+    options: null
+checkpoints:
+  max_total_mb: 2048
+  ttl_hours: 168
+output:
+  reasoning_to_caller: true
+  max_n: 4
+  enforcement_retries: 1
+  json_extract_max_candidates: 32
+  instructions:
+    tool_choice_none: null
+    tool_choice_required: null
+    tool_choice_function: null
+    parallel_off: null
+    json_object: null
+    json_schema: null
+engine:
+  pending_wait_ms: 5000
+  gc_interval_s: 60
+  version_check_interval_s: 300
+  auth_cooldown_s: 60
+  quota_default_backoff_s: 900
+  quota_max_backoff_s: 21600
+  drain_after_done_ms: 30000
+  store_busy_timeout_ms: 5000
+  chars_per_token: 4
+  model_created_unix: 1735689600

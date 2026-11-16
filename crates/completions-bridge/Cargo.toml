@@ -1,0 +1,31 @@
+[package]
+name = "completions-bridge"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "OpenAI-compatible completions API backed by agent CLIs."
+
+[[bin]]
+name = "completions-bridge"
+path = "src/main.rs"
+
+[dependencies]
+bridge-types.workspace = true
+bridge-policy.workspace = true
+bridge-engine.workspace = true
+bridge-claude.workspace = true
+bridge-openai.workspace = true
+anyhow.workspace = true
+libc = "0.2"
+axum.workspace = true
+clap.workspace = true
+serde_json.workspace = true
+yaml_serde.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[dev-dependencies]
+futures.workspace = true
+reqwest.workspace = true
+tempfile.workspace = true

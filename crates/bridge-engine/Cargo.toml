@@ -1,0 +1,28 @@
+[package]
+name = "bridge-engine"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Engine: normalisation, prefix hashing, checkpoint store, planner, router, quota, orchestrator, fake backend."
+
+[dependencies]
+bridge-types.workspace = true
+bridge-policy.workspace = true
+anyhow.workspace = true
+async-stream.workspace = true
+async-trait.workspace = true
+chrono.workspace = true
+futures.workspace = true
+hex.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+tokio.workspace = true
+tokio-stream.workspace = true
+tokio-util.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

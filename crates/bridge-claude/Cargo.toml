@@ -1,0 +1,34 @@
+[package]
+name = "bridge-claude"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Claude Code CLI backend: session files, forks, stream decoding, parking MCP server."
+
+[dependencies]
+bridge-types.workspace = true
+anyhow.workspace = true
+async-stream.workspace = true
+async-trait.workspace = true
+chrono.workspace = true
+futures.workspace = true
+hex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+tokio.workspace = true
+tokio-util.workspace = true
+tracing.workspace = true
+uuid.workspace = true
+libc = "0.2"
+
+[dev-dependencies]
+tempfile.workspace = true
+
+# Test helper: the parking MCP server as a standalone binary, so integration tests can
+# point `park_command` at it (the real bridge uses `completions-bridge mcp-park`).
+[[bin]]
+name = "bridge-claude-park"
+path = "src/bin/park.rs"
+test = false
+doc = false
